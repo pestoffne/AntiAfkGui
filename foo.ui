@@ -15,6 +15,23 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="le_key_start_stop"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="le_down_time">
+      <property name="text">
+       <string>950 ms</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="le_key_spam">
+      <property name="text">
+       <string>w</string>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="1">
      <widget class="QLineEdit" name="le_period">
       <property name="text">
@@ -29,13 +46,6 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="le_key">
-      <property name="text">
-       <string>w</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
@@ -46,21 +56,21 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label_1">
       <property name="text">
-       <string>Клавиша</string>
+       <string>Авто-нажимаемая клавиша</string>
       </property>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QPushButton" name="button_start_stop">
+     <widget class="QLabel" name="label_4">
       <property name="text">
-       <string>Старт/Стоп</string>
+       <string>Старт-стоп клавиша</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QLineEdit" name="le_down_time">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="button_start_stop">
       <property name="text">
-       <string>950 ms</string>
+       <string>Старт/Стоп</string>
       </property>
      </widget>
     </item>

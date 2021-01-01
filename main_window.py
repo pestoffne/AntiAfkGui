@@ -31,6 +31,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.button_start_stop.setText('Стоп')
         self.button_start_stop.setStyleSheet("background-color: red")
         self.state = 'run'
+        self.le_key.setEnabled(False)
+        self.le_period.setEnabled(False)
+        self.le_down_time.setEnabled(False)
         try:
             period = text_to_ms(self.le_period.text()) // timedelta(milliseconds=1)
             self.time_down = text_to_ms(self.le_down_time.text()) / timedelta(seconds=1)
@@ -43,6 +46,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.button_start_stop.setText('Старт')
         self.button_start_stop.setStyleSheet("background-color: green")
         self.state = 'idle'
+        self.le_key.setEnabled(True)
+        self.le_period.setEnabled(True)
+        self.le_down_time.setEnabled(True)
         self.timer.stop()
 
     @pyqtSlot()

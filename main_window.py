@@ -1,8 +1,8 @@
 #! /usr/bin/python3
 from time import sleep
 import sys
-from pynput.keyboard import Controller
 from datetime import timedelta
+from os import system
 
 from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtWidgets import QApplication, QMainWindow
@@ -26,7 +26,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.on_timer_timeout)
         self.le_key_start_stop.textChanged.connect(self.on_le_key_start_stop_text_changed)
-        self.keyboard = Controller()
         self.background_listener = BackgroundListener()
         self.background_listener.key_stop_clicked.connect(self.on_start_or_stop_clicked)
         self.background_listener.start()
@@ -71,12 +70,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @pyqtSlot()
     def on_timer_timeout(self):
-        try:
-            self.keyboard.press(self.key_spam)
-            sleep(self.time_down)
-            self.keyboard.release(self.key_spam)
-        except ValueError:
-            self.stop()
+        system('xte "keydown {}" "usleep {}" "keyup {}"'.format(
+            self.key_spam, int(self.time_down * 1_000_000), self.key_spam))
 
     @pyqtSlot()
     def on_le_key_start_stop_text_changed(self):

@@ -7,7 +7,7 @@ from os import system
 from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-from foo import Ui_MainWindow
+from ui_main_window import Ui_MainWindow
 from parser import text_to_ms
 from background_listener import BackgroundListener
 
